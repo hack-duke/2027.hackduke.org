@@ -1,0 +1,9 @@
+.landing {
+  width: 100%;
+}
+
+.landing-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
