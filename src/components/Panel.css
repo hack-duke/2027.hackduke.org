@@ -1,0 +1,18 @@
+/* Every full-screen panel, in any section, uses .panel */
+.panel {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  box-sizing: border-box;
+}
+
+.placeholder-panel {
+  display: grid;
+  place-items: center;
+}
+
+.placeholder-panel h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(32px, 6vw, 72px);
+}

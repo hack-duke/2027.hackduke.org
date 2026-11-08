@@ -1,7 +1,7 @@
-import Landing from './pages/Landing/Landing.jsx'
+import Home from './pages/Home/Home.jsx'
 
 function App() {
-  return <Landing />
+  return <Home />
 }
 
 export default App
