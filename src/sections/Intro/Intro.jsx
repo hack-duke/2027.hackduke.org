@@ -1,5 +1,6 @@
 import Panel from '../../components/Panel.jsx'
 import Hero from './panels/Hero.jsx'
+import './Intro.css'
 
 // Three screen heights of normal vertical scrolling.
 function Intro() {

@@ -1,4 +1,5 @@
 import Panel from '../../components/Panel.jsx'
+import './Outro.css'
 
 // Three screen heights of normal vertical scrolling.
 function Outro() {
