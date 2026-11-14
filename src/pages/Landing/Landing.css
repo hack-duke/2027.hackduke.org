@@ -1,9 +1,220 @@
 .landing {
-  width: 100%;
+  --barrier-width: clamp(160px, 23vw, 329px);
+  --hole-width: clamp(220px, 41vw, 594px);
+  --ground-height: 14px;
+
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  overflow: hidden;
+  box-sizing: border-box;
+  /* bottom padding keeps the content clear of the graphics */
+  padding: 96px clamp(24px, 6vw, 96px)
+    calc(max(var(--barrier-width) * 0.59, var(--hole-width) * 0.362) + 56px);
+  background: #0042c6;
+  color: #fff;
+  font-family: 'Poppins', system-ui, sans-serif;
+  text-align: left;
 }
 
-.landing-image {
+.landing-logo {
+  position: absolute;
+  top: 28px;
+  left: clamp(24px, 4.5vw, 64px);
   display: block;
-  width: 100%;
+  padding: 8px;
+  margin: -8px;
+}
+
+.landing-logo img {
+  display: block;
+  height: 32px;
+  width: auto;
+}
+
+.landing-logo:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.landing-badge {
+  position: absolute;
+  top: 0;
+  right: clamp(16px, 3vw, 48px);
+  width: clamp(56px, 7vw, 100px);
   height: auto;
+}
+
+/* Title on the left, info on the right */
+.landing-content {
+  padding-top: 6vh;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(32px, 6vw, 60px);
+  /* width: 100%; */
+  max-width: 1100px;
+}
+
+.landing-title {
+  display: block;
+  flex: none;
+  width: clamp(240px, 31vw, 450px);
+  height: auto;
+}
+
+.landing-info {
+  padding-top: 3.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.landing-heading {
+  margin: 0;
+  font-size: clamp(28px, 3.4vw, 48px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-wrap: balance;
+  color: #fff;
+}
+
+.landing-text {
+  margin: 0;
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.4;
+}
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.landing-barrier,
+.landing-hole {
+  position: absolute;
+  bottom: calc(var(--ground-height) - 2px);
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.landing-barrier {
+  left: 2vw;
+  bottom: 5vh;
+  width: 20vw;
+}
+
+.landing-hole {
+  right: 3vw;
+  bottom: 3vh;
+  width: 30vw;
+}
+
+/* Hazard-tape ground line the graphics stand on */
+.landing-ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--ground-height);
+  background: repeating-linear-gradient(
+    -45deg,
+    #f6ae1d 0 14px,
+    #0a1f66 14px 28px
+  );
+}
+
+/* Blueprint grid with a soft glow behind the content (static, no repaint cost) */
+.landing-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 48%, rgba(90, 150, 255, 0.35), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    56px 56px,
+    56px 56px;
+  mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, #000 45%, transparent 100%);
+}
+
+.landing-sparkle {
+  position: absolute;
+  color: #fff;
+  opacity: 0.5;
+  animation: landing-twinkle 3.6s ease-in-out infinite;
+}
+
+@keyframes landing-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-sparkle {
+    animation: none;
+  }
+}
+
+/* Tall, narrow screens (phones): one centered column */
+@media (max-aspect-ratio: 1/1) {
+  .landing {
+    --barrier-width: 38vw;
+    --hole-width: 56vw;
+
+    align-items: center;
+    justify-content: center;
+    padding-top: 110px;
+    text-align: center;
+  }
+
+  .landing-barrier {
+    left: 2vw;
+  }
+
+  .landing-hole {
+    right: 2vw;
+  }
+
+  .landing-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 0;
+  }
+
+  .landing-title {
+    width: min(70vw, 320px);
+  }
+
+  .landing-info {
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .landing-actions {
+    justify-content: center;
+  }
 }

@@ -1,0 +1,45 @@
+.link-button {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    background-color 0.15s,
+    border-color 0.15s;
+}
+
+.link-button--primary {
+  background: #f6ae1d;
+  color: #0042c6;
+}
+
+.link-button--secondary {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+
+a.link-button:hover {
+  transform: translateY(-2px);
+}
+
+a.link-button--secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+a.link-button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.link-button[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
