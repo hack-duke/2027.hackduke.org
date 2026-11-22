@@ -7,7 +7,7 @@ import 'lenis/dist/lenis.css'
 gsap.registerPlugin(ScrollTrigger)
 
 // Lenis smooths wheel/touch scrolling and is driven by GSAP's ticker so
-// ScrollTrigger (the pinned horizontal section) stays in sync with it.
+// ScrollTrigger animations stay in sync with it.
 function SmoothScroll({ children }) {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return

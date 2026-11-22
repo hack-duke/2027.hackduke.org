@@ -1,14 +1,14 @@
 import SmoothScroll from '../../components/SmoothScroll.jsx'
 import Intro from '../../sections/Intro/Intro.jsx'
-import HorizontalShowcase from '../../sections/HorizontalShowcase/HorizontalShowcase.jsx'
+import Showcase from '../../sections/Showcase/Showcase.jsx'
 import Outro from '../../sections/Outro/Outro.jsx'
 
-// Page order: vertical (3 screens) -> horizontal (3 screens) -> vertical (3 screens)
+// Page order: Intro (3 screens) -> Showcase (3 screens) -> Outro (3 screens), all vertical
 function Home() {
   return (
     <SmoothScroll>
       <Intro />
-      <HorizontalShowcase />
+      <Showcase />
       <Outro />
     </SmoothScroll>
   )
