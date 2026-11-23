@@ -4,7 +4,7 @@ import './LinkButton.css'
 // unfilled link in src/config/links.js can't ship as a dead link.
 function LinkButton({ href, variant = 'secondary', children }) {
   const className = `link-button link-button--${variant}`
-  const external = href && !href.startsWith('mailto:')
+  const external = href && /^https?:/.test(href)
 
   if (!href) {
     return (
